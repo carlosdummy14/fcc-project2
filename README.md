@@ -20,4 +20,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 #### Personal note. 
 
-This is my version before watch the possible solution.
+This is my version before watch the possible solution.\
+The default status could be random numbers.\
+Counter of rolls and a message of "You do it in ## rolls!!!"
