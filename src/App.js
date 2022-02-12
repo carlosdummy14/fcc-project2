@@ -17,7 +17,7 @@ function App() {
       });
     }
     return newArray;
-  };
+  }
 
   const handleRoll = () => {
     setDices((oldDices) => {
@@ -64,7 +64,7 @@ function App() {
 
   return (
     <main className="main">
-    {resetGame && <Confetti/>}
+      {resetGame && <Confetti />}
       <div className="container">
         <h2 className="title">Tenzies</h2>
         <p className="text">
@@ -72,15 +72,12 @@ function App() {
           current value between rolls.
         </p>
         <ul className="dices">{dicesToShow}</ul>
-        {!resetGame ? (
-          <button className="button" onClick={handleRoll}>
-            Roll
-          </button>
-        ) : (
-          <button className="button" onClick={handleReset}>
-            Reset Game
-          </button>
-        )}
+        <button
+          className="button"
+          onClick={resetGame ? handleReset : handleRoll}
+        >
+          {resetGame ? "Play Again" : "Roll"}
+        </button>
       </div>
     </main>
   );
