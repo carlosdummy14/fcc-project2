@@ -1,16 +1,28 @@
 import { useEffect, useState } from "react";
-import data from "./data";
 import Dice from "./components/Dice";
+// import data from "./data";
 
 function App() {
-  const [dices, setDices] = useState(data);
+  const [dices, setDices] = useState(randomDices());
   const [resetGame, setResetGame] = useState(false);
+
+  function randomDices() {
+    const newArray = [];
+    for (let i = 0; i < 10; i++) {
+      newArray.push({
+        id: i,
+        value: Math.floor(Math.random() * 6 + 1),
+        selected: false,
+      });
+    }
+    return newArray;
+  };
 
   const handleRoll = () => {
     setDices((oldDices) => {
       return oldDices.map((dice) => {
         if (!dice.selected) {
-          let num = Math.floor(Math.random() * 10 + 1);
+          let num = Math.floor(Math.random() * 6 + 1);
           return { ...dice, value: num };
         } else {
           return dice;
@@ -20,7 +32,7 @@ function App() {
   };
 
   const handleReset = () => {
-    setDices(data);
+    setDices(randomDices());
     setResetGame(false);
   };
 

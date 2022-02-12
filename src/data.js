@@ -31,22 +31,22 @@ const data = [
   },
   {
     id: 7,
-    value: 7,
+    value: 1,
     selected: false,
   },
   {
     id: 8,
-    value: 8,
+    value: 2,
     selected: false,
   },
   {
     id: 9,
-    value: 9,
+    value: 3,
     selected: false,
   },
   {
     id: 10,
-    value: 10,
+    value: 4,
     selected: true,
   },
 ];
