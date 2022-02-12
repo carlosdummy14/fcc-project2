@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Dice from "./components/Dice";
+import Confetti from "react-confetti";
 // import data from "./data";
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
 
   return (
     <main className="main">
+    {resetGame && <Confetti/>}
       <div className="container">
         <h2 className="title">Tenzies</h2>
         <p className="text">
