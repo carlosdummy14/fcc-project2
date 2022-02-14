@@ -1,66 +1,66 @@
-import { useEffect, useState } from "react";
-import Dice from "./components/Dice";
-import Confetti from "react-confetti";
+import { useEffect, useState } from 'react'
+import Dice from './components/Dice'
+import Confetti from 'react-confetti'
 // import data from "./data";
 
-function App() {
-  const [dices, setDices] = useState(randomDices());
-  const [resetGame, setResetGame] = useState(false);
+function App () {
+  const [dices, setDices] = useState(randomDices())
+  const [resetGame, setResetGame] = useState(false)
 
-  function randomDices() {
-    const newArray = [];
+  function randomDices () {
+    const newArray = []
     for (let i = 0; i < 10; i++) {
       newArray.push({
         id: i,
         value: Math.floor(Math.random() * 6 + 1),
-        selected: false,
-      });
+        selected: false
+      })
     }
-    return newArray;
+    return newArray
   }
 
   const handleRoll = () => {
     setDices((oldDices) => {
       return oldDices.map((dice) => {
         if (!dice.selected) {
-          let num = Math.floor(Math.random() * 6 + 1);
-          return { ...dice, value: num };
+          const num = Math.floor(Math.random() * 6 + 1)
+          return { ...dice, value: num }
         } else {
-          return dice;
+          return dice
         }
-      });
-    });
-  };
+      })
+    })
+  }
 
   const handleReset = () => {
-    setDices(randomDices());
-    setResetGame(false);
-  };
+    setDices(randomDices())
+    setResetGame(false)
+  }
 
   const selectDice = (id) => {
     setDices((oldDices) => {
       return oldDices.map((dice) => {
         if (dice.id === id) {
-          return { ...dice, selected: !dice.selected };
+          return { ...dice, selected: !dice.selected }
         } else {
-          return dice;
+          return dice
         }
-      });
-    });
-  };
+      })
+    })
+  }
 
   useEffect(() => {
-    const dicesSelected = dices.filter((dice) => dice.selected);
+    const dicesSelected = dices.filter((dice) => dice.selected)
     if (dicesSelected.length === 10) {
       setResetGame(
         dicesSelected.every((dice) => dice.value === dicesSelected[0].value)
-      );
+      )
     }
-  }, [dices]);
+  }, [dices])
 
   const dicesToShow = dices.map((dice) => {
-    return <Dice key={dice.id} dice={{ ...dice }} selectDice={selectDice} />;
-  });
+    return <Dice key={dice.id} dice={{ ...dice }} selectDice={selectDice} />
+  })
 
   return (
     <main className="main">
@@ -76,11 +76,11 @@ function App() {
           className="button"
           onClick={resetGame ? handleReset : handleRoll}
         >
-          {resetGame ? "Play Again" : "Roll"}
+          {resetGame ? 'Play Again' : 'Roll'}
         </button>
       </div>
     </main>
-  );
+  )
 }
 
-export default App;
+export default App

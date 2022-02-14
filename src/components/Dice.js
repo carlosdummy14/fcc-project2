@@ -1,16 +1,16 @@
-function Dice(props) {
+function Dice (props) {
   const {
     dice: { id, value, selected },
-    selectDice,
-  } = props;
+    selectDice
+  } = props
   return (
     <li
-      className={"dice" + ((selected && " selected") || "")}
+      className={'dice' + ((selected && ' selected') || '')}
       onClick={() => selectDice(id)}
     >
       {value}
     </li>
-  );
+  )
 }
 
-export default Dice;
+export default Dice

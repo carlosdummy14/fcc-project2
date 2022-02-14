@@ -1,0 +1,7 @@
+{
+  "extends": "stylelint-config-standard",
+  "customSyntax": "postcss-syntax",
+  "rules": {
+    "declaration-colon-newline-after": "always-multi-line"
+  }
+}
